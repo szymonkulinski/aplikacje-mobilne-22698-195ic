@@ -369,7 +369,7 @@ function ModalPage({ navigation }) {
                             onPress={() => {
                                 setModalVisible(false);
                                 setTimeout(() => {
-                                    ToastAndroid.show("Toast Text", ToastAndroid.SHORT)
+                                    ToastAndroid.show("Pare sekund pozniej...", ToastAndroid.SHORT)
                                 }, 100);      
                             }}
                         >
