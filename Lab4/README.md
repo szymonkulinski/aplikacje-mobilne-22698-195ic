@@ -6,6 +6,7 @@ Laboratoria
   - Słowa z dużej litery -- Każde słowo rozpoczyna się dużą literą
   - Clear text on focus -- Clearuje text po fokusie
   - Pesel -- Inpuit typu numerycznego z maksymalną ilością znaków wynoszącą 11
+  
 ![image](https://user-images.githubusercontent.com/56955430/168433952-2fd5e154-592f-4e54-af50-e1d765d0bd9c.png)
 
 ## Select
