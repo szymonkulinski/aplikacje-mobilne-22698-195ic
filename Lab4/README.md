@@ -43,5 +43,5 @@ Na tym ekranie przełączenie przełącznika spowoduje pojawienie się modalu:
 
 Parę sekund po wyłączeniu modala pojawia się komunikat: 
 
-![image](https://user-images.githubusercontent.com/56955430/168439989-564fd63f-1244-4f35-b705-c7fda0f06be1.png)
+![image](https://user-images.githubusercontent.com/56955430/168440059-d63bab18-dc08-470b-8198-5f956ba8456e.png)
 
