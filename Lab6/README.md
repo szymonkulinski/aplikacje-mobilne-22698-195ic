@@ -131,7 +131,14 @@ Kod:
 
 ## AsyncStorage:
 
+Po wpisaniu klucza i wciśnięciu "Wyświetl" wartość pojawia się bezpośrednio pod przyciskiem.
+
 ![image](https://user-images.githubusercontent.com/56955430/171758197-10fe7026-daa3-4926-a605-b701541103d9.png)
+
+![image](https://user-images.githubusercontent.com/56955430/171758994-a302d9d3-7884-4c9b-8131-67e4bdd24eab.png)
+
+![image](https://user-images.githubusercontent.com/56955430/171759027-20a8feaa-f843-4db7-9fd7-8909bc1a570e.png)
+
 
 Kod:
 
