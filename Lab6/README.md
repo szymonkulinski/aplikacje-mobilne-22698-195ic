@@ -1,252 +1,279 @@
 # aplikacje-mobilne-22698-195ic
-#Lab5 Aplikacje Mobilne
+#Lab6 Aplikacje Mobilne
 
-## ScrollBar1:
+## URI/REQUIRE:
 
-![image](https://user-images.githubusercontent.com/56955430/170085982-163e44a4-010c-470f-98a6-4667caa22760.png)
+![image](https://user-images.githubusercontent.com/56955430/171758075-e41e0ac1-c849-480f-9cb8-bea4fdbbc979.png)
 
-Kod ScrollBaru:
+Kod:
 
 ```js
-      <View style={styles.content}>
-        <SafeAreaView style={styles.container}>
-          <ScrollView style={styles.scrollView}>
-            <Text style={styles.text} snapToEnd={true}>
-              Lorem ipsum...
-            </Text>
-          </ScrollView>
-        </SafeAreaView>
-      </View>
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: 'https://seeklogo.com/images/A/akademia-marynarki-wojennej-gdynia-logo-8D363B8FB4-seeklogo.com.png',
+        }}
+      />
+```
+```js
+      <Image
+        style={styles.tinyLogo}
+        source={require('./assets/images/amw_logo.png')}
+      />
 ```
 
-## ScrollBar2:
+## Slider:
 
-![image](https://user-images.githubusercontent.com/56955430/170095318-ea91ff01-c2e4-44c7-8832-352f76693d2c.png)
+![image](https://user-images.githubusercontent.com/56955430/171758107-f1b451af-2aa6-495f-b804-fc161dfdb1a4.png)
 
-Kod ScrollBaru:
+![image](https://user-images.githubusercontent.com/56955430/171758113-aac436a1-69fa-4265-96eb-981e9a4c2317.png)
+
+Kod:
 ```js
-          <ScrollView style={styles.scrollView2}>
-            <View style={styles.box1}>
-              <Text style={styles.textBox}>
-                1
-              </Text>
-            </View>
-
-            <View style={styles.box2}>
-              <Text style={styles.textBox}>
-                2
-              </Text>
-            </View>
-</ScrollView>
-
-const styles = StyleSheet.create({
-  scrollView2: {
-    flexGrow: 1, 
-    borderColor: '#FFFFE0', 
-    borderWidth: 5
-  },
-  box1:{
-    flex:1,
-    backgroundColor: '#F0E68C',
-  },
-  box2:{
-    flex:1,
-  },
-  textBox:{
-    fontSize: 40,
-  },
+  const [state, setState] = useState({
+    firstImageScale: 1,
 });
+
+  const resizeFirstImage = (value) => {
+      setState({firstImageScale: value});
+  }
+  
 ```
-## Touchable:
+```js
+        <Image source={{ uri: "https://seeklogo.com/images/A/akademia-marynarki-wojennej-gdynia-logo-8D363B8FB4-seeklogo.com.png" }} style={[styles.tinyLogo, {transform: [{ scale: state.firstImageScale }]}]} />
+      <Slider
+        style={{width: 200, height: 40}}
+        minimumValue={0}
+        maximumValue={1}
+        minimumTrackTintColor="#000000"
+        maximumTrackTintColor="#000000"
+        onValueChange={resizeFirstImage}
+      />
+  
+```
+## Lazy/Ikonki:
 
-TouchableOpacity:
-
-![image](https://user-images.githubusercontent.com/56955430/170096255-a0626eef-7a20-433b-a7c4-750da5708f76.png)
-
-Przyciski w navbarze zostały zaprojektowane za pomocą TouchableOpacity.
+![image](https://user-images.githubusercontent.com/56955430/171758144-7bbfec4f-8a8d-4b8b-bda4-c5ef2f52d5f0.png)
 
 Kod:
 
 ```js
-      <TouchableOpacity style={styles.button} title="ScrollBar1r" onPress={() => navigation.navigate('ScrollBar1')}>
-        <Text> ScrollBar1 </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} title="ScrollBar2" onPress={() => navigation.navigate('ScrollBar2')} >
-        <Text> ScrollBar2 </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} title="Touchable" onPress={() => navigation.navigate('Touchable')} >
-      <Text> Touchable </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} title="Swipe" onPress={() => navigation.navigate('Swipe')} >
-      <Text> Swipe </Text>
-      </TouchableOpacity>
+<Image loadingIndicatorSource={require('./assets/images/amw_logo.png')} source={{ uri: "https://seeklogo.com/images/A/akademia-marynarki-wojennej-gdynia-logo-8D363B8FB4-seeklogo.com.png" }} style={styles.tinyLogo} progressiveRenderingEnabled={false}/>
+        <View style={styles.iconsVertically}>
+          <Ionicons name='add' size={20} color="green" />
+          <Ionicons name="airplane-sharp" size={20} color="green" />
+          <Ionicons name="alarm-sharp" size={20} color="green" />
+          <Ionicons name="apps-sharp" size={20} color="green" />
+          <Ionicons name="arrow-forward-circle-sharp" size={20} color="green" />
+          <Ionicons name="at-sharp" size={20} color="green" />
+          <Ionicons name="arrow-up-sharp" size={20} color="green"/>
+          <Ionicons name="arrow-forward-sharp" size={20} color="green" />
+          <Ionicons name="baseball-sharp" size={20} color="green" />
+          <Ionicons name="ios-play-skip-back-sharp" size={20} color="green" />
+        </View>
+        <View style={styles.iconsVertically}>
+          <Ionicons name="battery-charging-outline" size={20} color="green" />
+          <Ionicons name="md-play-forward-circle-outline" size={20} color="green" />
+          <Ionicons name="basket-sharp" size={20} color="green" />
+          <Ionicons name="bonfire-outline" size={20} color="green" />
+          <Ionicons name="arrow-redo-outline" size={20} color="green" />
+          <Ionicons name="arrow-redo-outline" size={20} color="green" />
+          <Ionicons name="build-sharp" size={20} color="green" />
+          <Ionicons name="md-arrow-redo-circle" size={20} color="green" />
+          <Ionicons name="woman-outline" size={20} color="green" />
+          <Ionicons name="notifications-circle" size={20} color="green" />
+        </View>
+        <View style={styles.iconsVertically}>
+          <Ionicons name='add' size={20} color="green" />
+          <Ionicons name="airplane-sharp" size={20} color="green" />
+          <Ionicons name="alarm-sharp" size={20} color="green" />
+          <Ionicons name="apps-sharp" size={20} color="green" />
+          <Ionicons name="arrow-forward-circle-sharp" size={20} color="green" />
+          <Ionicons name="at-sharp" size={20} color="green" />
+          <Ionicons name="arrow-up-sharp" size={20} color="green"/>
+          <Ionicons name="arrow-forward-sharp" size={20} color="green" />
+          <Ionicons name="baseball-sharp" size={20} color="green" />
+          <Ionicons name="ios-play-skip-back-sharp" size={20} color="green" />
+        </View>
+        <View style={styles.iconsVertically}>
+          <Ionicons name="battery-charging-outline" size={20} color="green" />
+          <Ionicons name="md-play-forward-circle-outline" size={20} color="green" />
+          <Ionicons name="basket-sharp" size={20} color="green" />
+          <Ionicons name="bonfire-outline" size={20} color="green" />
+          <Ionicons name="arrow-redo-outline" size={20} color="green" />
+          <Ionicons name="arrow-redo-outline" size={20} color="green" />
+          <Ionicons name="build-sharp" size={20} color="green" />
+          <Ionicons name="md-arrow-redo-circle" size={20} color="green" />
+          <Ionicons name="woman-outline" size={20} color="green" />
+          <Ionicons name="notifications-circle" size={20} color="green" />
+        </View>
 ```
 
-Style:
-```js
-      button: {
-        flex: 1,
-        shadowColor: 'rgba(0,0,0, .4)', // IOS
-        shadowOffset: { height: 1, width: 1 }, // IOS
-        shadowOpacity: 1, // IOS
-        shadowRadius: 1, //IOS
-        backgroundColor: '#fff',
-        elevation: 2, // Android
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        marginRight: 1,
-      },
- ```
+## Połączenie:
 
-TouchableHighlight:
-
-Wciśnięcie przycisku powoduje zwiększenie się wyświetlanej liczby o 1.
-
-![image](https://user-images.githubusercontent.com/56955430/170097575-8886584e-dd6a-4853-a49e-c74cc68a60ff.png)
+![image](https://user-images.githubusercontent.com/56955430/171758179-d510e984-5c20-4adc-b023-76358fc76806.png)
 
 Kod:
+
 ```js
-      <View style={styles.touchcontent}>
-        <TouchableHighlight onPress={onPress}>
-          <View style={styles.touchButton}>
-            <Text>Touch Here</Text>
-          </View>
-        </TouchableHighlight>
-        <View style={styles.countContainer}>
-          <Text style={styles.countText}>{count ? count : null}</Text>
+  NetInfo.fetch().then(state =>{
+    setConnectStatus(state.isConnected);
+    setContentType(state.type);
+  })
+
+  const [contentStatus, setConnectStatus] = useState(false);
+  const [contentType, setContentType] = useState(" ");
+```
+```js
+  <Text>Połączenie z internetem: {String(contentStatus)}</Text>
+  <Text>Typ połączenia: {contentType}</Text>
+```
+
+## AsyncStorage:
+
+![image](https://user-images.githubusercontent.com/56955430/171758197-10fe7026-daa3-4926-a605-b701541103d9.png)
+
+Kod:
+
+```js
+  const [textInputValue, setTextInputValue] = useState('');
+  const [getValue, setGetValue] = useState('');
+  const [keyInput, setInputKey] = useState('');
+  const [keyRecieve, setRecieveKey] = useState('');
+
+  const saveValueFunction = () => {
+    if (textInputValue) {
+      AsyncStorage.setItem(keyInput, textInputValue);
+      setTextInputValue('');
+      alert('Data Saved');
+    } else {
+      alert('Please fill data');
+    }
+  };
+
+  const getValueFunction = () => {
+    AsyncStorage.getItem(keyRecieve).then(
+      (value) =>
+        setGetValue(value)
+    );
+```
+```js
+       <View>
+        <View style={styles.cenetrHorizontaly}>
+            <Text>Podaj wartość do zapisania</Text>
+            <View style={{flexDirection: 'row'}}>
+                <TextInput onChangeText={(text) => setInputKey(text)} placeholder="Podaj klucz"/>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+                <TextInput onChangeText={(data) => setTextInputValue(data)} placeholder="Wpisz wartość"/>
+            </View>
+            <Button
+                title='Dodaj wartość'
+                style={styles.button}
+                onPress={saveValueFunction}
+            >
+            </Button>
         </View>
       </View>
+      <View>
+        <View style={styles.cenetrHorizontaly}>
+            <Text style={styles.textBold}>Podaj wartość do odczytania</Text>
+            <View style={{flexDirection: 'row'}}>
+                <TextInput onChangeText={(readKeyInput) => setRecieveKey(readKeyInput)} placeholder="Podaj klucz"/>
+            </View>
+            <Button
+                title='Wyświetl'
+                style={styles.button}
+                onPress={getValueFunction}
+            >
+            </Button>
+            <Text> {getValue} </Text>
+        </View>
+    </View>
+    
 ```
 
-Style:
-```js
-  touchContent: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 10,
-  },
-  touchButton: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-  },
-  countContainer: {
-    alignItems: 'center',
-    padding: 10,
-  },
-  countText: {
-    color: '#FF00FF',
-  },
-```
-#Swipe
+## Lokalnie/Storage:
 
-![image](https://user-images.githubusercontent.com/56955430/170103814-8469cdfb-51ad-4e48-9e72-435604f9b80c.png)
+![image](https://user-images.githubusercontent.com/56955430/171758418-fb780a13-67fb-4af4-9898-c387d556ec17.png)
 
-![image](https://user-images.githubusercontent.com/56955430/170103843-68e6fc0b-7250-40b3-b624-2cff7df50ec1.png)
-
-![image](https://user-images.githubusercontent.com/56955430/170103865-c0efbf8e-1ae4-46ca-93b9-9ae527eaadb2.png)
-
+![image](https://user-images.githubusercontent.com/56955430/171758483-516f6fef-5fc0-4391-8bf8-1bc8e6e53d5c.png)
 
 Kod:
+
 ```js
-function Swipe({ navigation }) {
-  const leftContent=[
-    <View style={[styles.leftSwipeItem, {backgroundColor: 'lightskyblue'}]}>
-      <Text>Pull action</Text>
-    </View>
-  ];
-
-  const rightButtons = [
-    <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: 'lightseagreen'}]}>
-    <Text>Green</Text>
-  </TouchableOpacity>,
-  <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: 'orchid'}]}>
-    <Text>Orchid</Text>
-  </TouchableOpacity>
-  ];
-
-  const leftContent2=[
-    <View style={[styles.leftSwipeItem, {backgroundColor: 'lightskyblue'}]}>
-      <Text>Pull action</Text>
-    </View>
-  ];
-
-  const rightButtons2 = [
-    <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: 'lightseagreen'}]}>
-    <Text>1</Text>
-  </TouchableOpacity>,
-  <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: 'orchid'}]}>
-    <Text>2</Text>
-  </TouchableOpacity>,
-  <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: 'lightseagreen'}]}>
-    <Text>3</Text>
-  </TouchableOpacity>,
-  <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: 'orchid'}]}>
-    <Text>4</Text>
-  </TouchableOpacity>
-  ];
-
-  const leftContent3=[
-    <View style={[styles.leftSwipeItem, {backgroundColor: 'lightskyblue'}]}>
-      <Text>Pull action</Text>
-    </View>
-  ];
-
-  const rightButtons3 = [
-    <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: '#aaaaaa'}]}>
-    <Text>1</Text>
-  </TouchableOpacity>,
-  <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: '#bbbbbb'}]}>
-    <Text>2</Text>
-  </TouchableOpacity>,
-  <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: '#cccccc'}]}>
-    <Text>1</Text>
-  </TouchableOpacity>,
-  <TouchableOpacity style={[styles.rightSwipeItem, {backgroundColor: '#dddddd'}]}>
-    <Text>2</Text>
-  </TouchableOpacity>
-  ];
-  
-  return (
-    <View>
-      <View style={styles.navBar}>
-        
-      <TouchableOpacity style={styles.button} title="ScrollBar1" onPress={() => navigation.navigate('ScrollBar1')}>
-        <Text> ScrollBar1 </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} title="ScrollBar2" onPress={() => navigation.navigate('ScrollBar2')} >
-        <Text> ScrollBar2 </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} title="Touchable" onPress={() => navigation.navigate('Touchable')} >
-      <Text> Touchable </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} title="Swipe" onPress={() => navigation.navigate('Swipe')} >
-      <Text> Swipe </Text>
-      </TouchableOpacity>
-
-      </View>
-      
-      <View style={styles.content}>
-        <Swipeable leftContent={leftContent} rightButtons={rightButtons}>
-          <Text style={styles.textBox}>Swipe1</Text>
-        </Swipeable>
-        <Swipeable leftContent={leftContent2} rightButtons={rightButtons2}>
-          <Text style={styles.textBox}>Swipe2</Text>
-        </Swipeable>
-        <Swipeable leftContent={leftContent3} rightButtons={rightButtons3}>
-          <Text style={styles.textBox}>Swipe3</Text>
-        </Swipeable>
-      </View>
-      
-    </View>
-  );
+  const numericValue = async (value) => {
+    var key = "localValue"
+    try {
+        await AsyncStorage.setItem(key,value.toString());
+    } catch (error) {
+        console.error(error)
+    }
+    try {
+        const tempValue = await AsyncStorage.getItem(key);
+        if (tempValue !== null) {
+          setLocalValue(tempValue);
+        }else{
+          setLocalValue('n/a');
+        }
+    } catch (error) {
+      setLocalValue(error);
+    }
 }
+
+  const [internetConnection, setInternetConnection] = useState(false);
+  const [localValue, setLocalValue] = useState('');
+  const [remoteValue, setRemoteValue] = useState('');
+
+  const checkData = () =>{
+    if(internetConnection){
+        // połączenie z internetem
+        // aktualizacja danych
+        setRemoteValue(localValue)
+    }else{
+        // brak połączenia z internetem
+        // nie aktualizuje danych
+    }
+}
+
+setInterval(checkData, 1000);
+
+```
+```js
+<View>
+              <Text >{internetConnection?`Połączono z internetem `:`Brak połączenia z internetem`}</Text>
+              <Switch value={internetConnection} onValueChange={(data) => setInternetConnection(data)}/>
+          </View>
+          <View>
+              <View >
+                  <Text>Dane:</Text>
+                  <View style={{alignItems: 'center', marginTop: 10,}}>
+                      <NumericInput 
+                          onChange={numericValue} 
+                          onLimitReached={(isMax,msg) => console.log(isMax,msg)}
+                          totalWidth={240} 
+                          totalHeight={50} 
+                          iconSize={25}
+                          valueType='real'
+                          rounded 
+                          textColor='#000' 
+                          borderColor= '#666'
+                          iconStyle={{ color: 'white' }} 
+                          rightButtonBackgroundColor='#4f4' 
+                          leftButtonBackgroundColor='#0d0'/>
+                  </View>
+              </View>
+          </View>
+          <View>
+              <View >
+                  <View >
+                      <Text >Kopia Lokalna</Text>
+                      <Text >{localValue}</Text>
+                  </View>
+                  <View >
+                      <Text >Kopia Remote</Text>
+                      <Text >{remoteValue}</Text>
+                  </View>
+              </View>
+          </View>
 ```
