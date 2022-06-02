@@ -303,9 +303,9 @@ function Sc5({ navigation }) {
       <Text> Sc6 </Text>
       </TouchableOpacity>
       </View>
-      <View style={styles.section}>
+      <View>
         <View style={styles.cenetrHorizontaly}>
-            <Text style={styles.textBold}>Podaj wartość do zapisania</Text>
+            <Text>Podaj wartość do zapisania</Text>
             <View style={{flexDirection: 'row'}}>
                 <TextInput onChangeText={(text) => setInputKey(text)} placeholder="Podaj klucz"/>
             </View>
@@ -320,7 +320,7 @@ function Sc5({ navigation }) {
             </Button>
         </View>
       </View>
-      <View style={styles.section}>
+      <View>
         <View style={styles.cenetrHorizontaly}>
             <Text style={styles.textBold}>Podaj wartość do odczytania</Text>
             <View style={{flexDirection: 'row'}}>
@@ -332,7 +332,7 @@ function Sc5({ navigation }) {
                 onPress={getValueFunction}
             >
             </Button>
-            <Text style={styles.textStyle}> {getValue} </Text>
+            <Text> {getValue} </Text>
         </View>
     </View>
     </View>
@@ -405,15 +405,15 @@ setInterval(checkData, 1000);
       </TouchableOpacity>
       </View>
 
-      <View style={styles.content.container}>
+      <View>
       <ScrollView >
-          <View style={styles.content.example}>
+          <View>
               <Text >{internetConnection?`Połączono z internetem `:`Brak połączenia z internetem`}</Text>
               <Switch value={internetConnection} onValueChange={(data) => setInternetConnection(data)}/>
           </View>
-          <View style={styles.content.example}>
+          <View>
               <View >
-                  <Text>Zmiana danych </Text>
+                  <Text>Dane:</Text>
                   <View style={{alignItems: 'center', marginTop: 10,}}>
                       <NumericInput 
                           onChange={numericValue} 
@@ -431,15 +431,14 @@ setInterval(checkData, 1000);
                   </View>
               </View>
           </View>
-          <View style={styles.content.example}>
-              <Text>Podgląd </Text>
+          <View>
               <View >
                   <View >
-                      <Text >Dane lokalnie</Text>
+                      <Text >Kopia Lokalna</Text>
                       <Text >{localValue}</Text>
                   </View>
                   <View >
-                      <Text >Dane zdalne</Text>
+                      <Text >Kopia Remote</Text>
                       <Text >{remoteValue}</Text>
                   </View>
               </View>
